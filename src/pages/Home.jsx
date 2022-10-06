@@ -44,6 +44,13 @@ const featureData = [
 const Home = () => {
   const [allProducts, setAllProducts] = useState(products);
   const [category, setCategory] = useState("ALL");
+  const [hotPizza, setHotPizza] = useState([]);
+
+  useEffect(() => {
+    const filteredPizza = products.filter((item) => item.category === "Pizza");
+    const slicePizza = filteredPizza.slice(0, 4);
+    setHotPizza(slicePizza);
+  }, []);
 
   useEffect(() => {
     if (category === "ALL") {
@@ -209,27 +216,74 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-      {/* Tasty Treat */}
+      {/* Why choose us */}
       <section>
         <Container>
           <Row>
             <Col lg="6" md="6">
-              <img src={whyImg} alt="why-tasty-treat" />
+              <img src={whyImg} alt="why-tasty-treat" className="w-100" />
             </Col>
             <Col lg="6" md="6">
               <div className="why__tasty-treat">
-                <h2 className="tasty__treat-title"> Why Tasty Treat?</h2>
-                <p>
+                <h2 className="tasty__treat-title mb-4 mt-4">
+                  Why <span>Tasty Treat?</span>
+                </h2>
+                <p className="tasty__treat-desc">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos
                   ullam quisquam pariatur assumenda nihil esse. Dolore ea facere
                   cupiditate recusandae doloremque. Nesciunt, maiores. Soluta
                   necessitatibus, ipsam sint mollitia fugit nulla!
                 </p>
-                <ListGroup>
-                  <ListGroupItem></ListGroupItem>
+                <ListGroup className="mt-5">
+                  <ListGroupItem className="border-0 ps-0">
+                    <p className="choose__us-title d-flex align-items-center gap-2">
+                      <i className="ri-checkbox-circle-line"></i>Fresh and tasty
+                      foods
+                    </p>
+                    <p className="choose__us-desc">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Quaerat, amet.
+                    </p>
+                  </ListGroupItem>
+
+                  <ListGroupItem className="border-0 ps-0">
+                    <p className="choose__us-title d-flex align-items-center gap-2">
+                      <i className="ri-checkbox-circle-line"></i>
+                      Quality support
+                    </p>
+                    <p className="choose__us-desc">
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Cum, doloremque.
+                    </p>
+                  </ListGroupItem>
+                  <ListGroupItem className="border-0 ps-0">
+                    <p className="choose__us-title d-flex align-items-center gap-2">
+                      <i className="ri-checkbox-circle-line"></i>
+                      Order from any location
+                    </p>
+                    <p className="choose__us-desc">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Aliquid, neque!
+                    </p>
+                  </ListGroupItem>
                 </ListGroup>
               </div>
             </Col>
+          </Row>
+        </Container>
+      </section>
+
+      <section className="pt-0">
+        <Container>
+          <Row>
+            <Col lg="12" className="text-center mb-5">
+              <h2>Hot Pizza</h2>
+            </Col>
+            {hotPizza.map((item, index) => (
+              <Col lg="3" md="4" key={item.id}>
+                <ProductCard item={item} />
+              </Col>
+            ))}
           </Row>
         </Container>
       </section>
