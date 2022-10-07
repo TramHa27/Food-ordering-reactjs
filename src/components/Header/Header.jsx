@@ -28,6 +28,7 @@ const Header = () => {
   const menuRef = useRef(null);
 
   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
+  console.log(menuRef);
 
   return (
     <header className="header">
@@ -39,8 +40,8 @@ const Header = () => {
           </div>
 
           {/* =========== Menu ============ */}
-          <div className="navigation" ref={menuRef}>
-            <div className="menu d-flex align-items-center gap-5 ">
+          <div className="navigation" ref={menuRef} onClick={toggleMenu}>
+            <div className="menu d-flex align-items-center gap-5">
               {nav__links.map((item, index) => (
                 <NavLink
                   onClick={toggleMenu}

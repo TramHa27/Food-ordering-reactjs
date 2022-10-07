@@ -20,7 +20,10 @@ import foodCategoryImg04 from "../assets/images/all.png";
 
 import whyImg from "../assets/images/location.png";
 
+import networkImg from "../assets/images/network.png";
+
 import ProductCard from "../components/UI/product-card/ProductCard";
+import TestimonialSlider from "../components/UI/slider/TestimonialSlider";
 import { useState, useEffect } from "react";
 
 const featureData = [
@@ -149,7 +152,7 @@ const Home = () => {
             </Col>
 
             {featureData.map((item, index) => (
-              <Col lg="4" md="4" key={index} className="mt-5">
+              <Col lg="4" md="6" sm="6" key={index} className="mt-5">
                 <div className="feature__item text-center">
                   <img
                     src={item.imgUrl}
@@ -209,7 +212,7 @@ const Home = () => {
               </div>
             </Col>
             {allProducts.map((item) => (
-              <Col lg="3" md="4" key={item.id} className="mt-5">
+              <Col lg="3" md="4" sm="6" xs="6" key={item.id} className="mt-5">
                 <ProductCard item={item} />
               </Col>
             ))}
@@ -217,7 +220,7 @@ const Home = () => {
         </Container>
       </section>
       {/* Why choose us */}
-      <section>
+      <section className="why__chose-us">
         <Container>
           <Row>
             <Col lg="6" md="6">
@@ -234,7 +237,7 @@ const Home = () => {
                   cupiditate recusandae doloremque. Nesciunt, maiores. Soluta
                   necessitatibus, ipsam sint mollitia fugit nulla!
                 </p>
-                <ListGroup className="mt-5">
+                <ListGroup className="mt-4">
                   <ListGroupItem className="border-0 ps-0">
                     <p className="choose__us-title d-flex align-items-center gap-2">
                       <i className="ri-checkbox-circle-line"></i>Fresh and tasty
@@ -272,18 +275,42 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-
+      {/* Hot pizza */}
       <section className="pt-0">
         <Container>
           <Row>
             <Col lg="12" className="text-center mb-5">
               <h2>Hot Pizza</h2>
             </Col>
-            {hotPizza.map((item, index) => (
+            {hotPizza.map((item) => (
               <Col lg="3" md="4" key={item.id}>
                 <ProductCard item={item} />
               </Col>
             ))}
+          </Row>
+        </Container>
+      </section>
+      {/* Testimonial */}
+      <section>
+        <Container>
+          <Row>
+            <Col lg="6" md="6">
+              <div className="testimonial">
+                <h5 className="testimonial__subtitle mb-4 ">Testimonial</h5>
+                <h2 className="testimonial__title mb-4">
+                  What our <span>customers</span> are saying
+                </h2>
+                <p className="testimonial__desc">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+                  minus excepturi vel odit dolores alias delectus nisi
+                  asperiores! Eveniet, nulla.
+                </p>
+                <TestimonialSlider />
+              </div>
+            </Col>
+            <Col lg="6" md="6">
+              <img src={networkImg} alt="testimonial-img" className="w-100" />
+            </Col>
           </Row>
         </Container>
       </section>
