@@ -33,13 +33,18 @@
 .addToCart__btn {
   border: none;
   padding: 7px 25px;
-  background: #df2020;
   color: #fff;
+  background: #df2020;
   border-radius: 5px;
   font-size: 0.9rem;
 }
 
-@media only screen and (max-width: 1180px) {
+.addToCart__btn:hover {
+  background: #212245 !important;
+  color: #fff !important;
+}
+
+@media only screen and (max-width: 992px) {
   .product__content h5 a {
     font-size: 0.6rem;
   }
@@ -47,7 +52,7 @@
     padding: 20px;
   }
   .addToCart__btn {
-    padding: 5px 15px;
+    padding: 5px 8px;
     font-size: 0.8rem;
   }
 }

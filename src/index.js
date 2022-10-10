@@ -9,9 +9,14 @@ import "./index.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import store from "./store/store";
+import { Provider } from "react-redux";
+
 ReactDOM.render(
   <Router>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </Router>,
   document.getElementById("root")
 );
