@@ -21,7 +21,7 @@ import product_05_image_03 from "../images/product_09.jpg";
 
 import product_06_image_01 from "../images/bread(1).png";
 import product_06_image_02 from "../images/bread(2).png";
-import product_06_image_03 from "../images/bread(3).jpg";
+import product_06_image_03 from "../images/bread(3).png";
 
 const products = [
   {

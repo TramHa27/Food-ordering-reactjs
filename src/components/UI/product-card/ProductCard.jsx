@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../../store/shopping-cart/cartSlice";
+import { addToCartAction } from "../../../store/shopping-cart/cartSlice";
 
 import "../../../style/product-card.css";
 
@@ -30,7 +30,7 @@ const ProductCard = (props) => {
                 quantity: 1,
                 totalPrice: props.item.price,
               };
-              const action = addToCart(itemCart);
+              const action = addToCartAction(itemCart);
               dispatch(action);
             }}
           >

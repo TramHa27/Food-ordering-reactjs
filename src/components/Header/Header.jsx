@@ -4,7 +4,9 @@ import { Container } from "reactstrap";
 import logo from "../../assets/images/res-logo.png";
 import { NavLink, Link } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { toggle } from "../../store/shopping-cart/cartUiSlice";
 
 import "../../style/header.css";
 const nav__links = [
@@ -30,6 +32,9 @@ const Header = () => {
   const menuRef = useRef(null);
   const headerRef = useRef(null);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
+  const dispatch = useDispatch();
+
   //useRef to show menu mobile
   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
   //useEffect to show the header__shrink
@@ -76,7 +81,12 @@ const Header = () => {
 
           {/* ==============Nav right icon ==============  */}
           <div className="nav__right d-flex align-items-center gap-4">
-            <span className="cart__icon">
+            <span
+              className="cart__icon"
+              onClick={() => {
+                dispatch(toggle());
+              }}
+            >
               <i className="ri-shopping-basket-line"></i>
               <span className="cart__badge">{totalQuantity}</span>
             </span>
