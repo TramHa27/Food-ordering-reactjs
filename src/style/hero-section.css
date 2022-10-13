@@ -34,6 +34,11 @@
 
 .order__btn:hover {
   background: #212245;
+  color: #fff !important;
+}
+
+.order__btn a:hover {
+  color: #fff !important;
 }
 
 .all__foods-btn {

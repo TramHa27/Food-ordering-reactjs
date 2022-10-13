@@ -3,6 +3,8 @@ import Header from "../Header/Header.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Routes from "../../routes/Routers.jsx";
 import Carts from "../UI/cart/Carts.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { useSelector } from "react-redux";
 
@@ -11,6 +13,7 @@ const Layout = () => {
   return (
     <div>
       <Header />
+      <ToastContainer autoClose={3000} theme="colored" closeOnClick />
       {showCart && <Carts />}
       <div>
         <Routes />
