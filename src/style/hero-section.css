@@ -44,15 +44,21 @@
 .all__foods-btn {
   background: transparent;
   border: 1px solid #df2020 !important;
+  color: #df2020;
 }
 
-.all__foods-btn a {
-  color: #df2020 !important;
-}
+/* .all__foods-btn a {
+  color: #df2020;
+} */
 
 .all__foods-btn:hover {
   border: 1px solid #212245 !important;
   background: #212245;
+  color: #fff !important;
+}
+
+.all__foods-btn a:hover {
+  color: #fff;
 }
 
 .hero__service p {

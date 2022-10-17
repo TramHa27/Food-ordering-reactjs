@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 1000%;
-  background: rgba(0, 0n, 0, 0.639);
+  background: rgba(0, 0, 0, 0.639);
   z-index: 99999;
 }
 
@@ -72,4 +72,8 @@
 
 .cart__item-none i {
   font-size: 4rem;
+}
+
+.cart__item-shop:hover {
+  color: #fd7e14 !important;
 }

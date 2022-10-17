@@ -7,7 +7,7 @@ import { addToCartAction } from "../../../store/shopping-cart/cartSlice";
 import "../../../style/product-card.css";
 
 const ProductCard = (props) => {
-  //Lấy item từ cha là home product
+  //Lấy item từ cha là home product, all foods
   const { id, title, image01, price } = props.item;
   const dispatch = useDispatch();
 

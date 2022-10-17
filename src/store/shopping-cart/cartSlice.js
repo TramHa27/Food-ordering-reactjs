@@ -18,14 +18,10 @@ const cartSlice = createSlice({
         (item) => item.id === newItem.id
       );
       state.totalQuantity++;
-      toast.success("Add to cart successfully");
       if (existingItem) {
         existingItem.quantity++;
         existingItem.totalPrice =
           Number(existingItem.totalPrice) + Number(newItem.price);
-        toast.success("Product updates successfully! ", {
-          position: toast.POSITION.TOP_CENTER,
-        });
       } else {
         state.cartItems.push(action.payload);
       }
@@ -36,6 +32,7 @@ const cartSlice = createSlice({
         (total, item) => total + Number(item.price) * Number(item.quantity),
         0
       );
+      toast.success("Add to cart successfully");
     },
 
     //===============change item===============
@@ -57,9 +54,7 @@ const cartSlice = createSlice({
         (total, item) => total + Number(item.price) * Number(item.quantity),
         0
       );
-      toast.success("Product updates successfully! ", {
-        position: toast.POSITION.TOP_CENTER,
-      });
+      toast.warning("Product updates successfully! ");
     },
 
     //=================delete item==============
@@ -74,9 +69,7 @@ const cartSlice = createSlice({
         (total, item) => total + Number(item.price) * Number(item.quantity),
         0
       );
-      toast.success("Product updates successfully! ", {
-        position: toast.POSITION.TOP_CENTER,
-      });
+      toast.error("Product updates successfully! ");
     },
   },
 });

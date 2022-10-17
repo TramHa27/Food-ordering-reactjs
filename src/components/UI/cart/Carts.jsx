@@ -34,9 +34,10 @@ const Carts = (props) => {
               </h6>
               <Link
                 to="/foods"
-                className="d-flex gap-1 justify-content-center mt-4"
+                className="d-flex gap-1 justify-content-center mt-4 cart__item-shop"
               >
-                <h6>Go to shop </h6> <i className="ri-arrow-right-line"></i>
+                <span className="fw-bold fs-6">Go to shop </span>
+                <i className="ri-arrow-right-line"></i>
               </Link>
             </div>
           ) : (

@@ -13,7 +13,11 @@ const Layout = () => {
   return (
     <div>
       <Header />
-      <ToastContainer autoClose={3000} theme="colored" closeOnClick />
+      <ToastContainer
+        autoClose={2000}
+        closeOnClick
+        style={{ zIndex: "9999999" }}
+      />
       {showCart && <Carts />}
       <div>
         <Routes />

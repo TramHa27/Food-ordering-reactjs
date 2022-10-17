@@ -10,7 +10,7 @@ import {
 
 const CartItem = (props) => {
   //truyền props từ carts
-  const { id, title, price, image01, quantity, totalPrice } = props.item;
+  const { id, title, price, image01, quantity } = props.item;
 
   const dispatch = useDispatch();
 
