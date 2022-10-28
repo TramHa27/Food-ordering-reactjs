@@ -6,6 +6,10 @@
   cursor: pointer;
 }
 
+.product__img img {
+  margin-bottom: 20px;
+}
+
 .product__img {
   margin-bottom: 20px;
   transition: 0.4s;
@@ -15,13 +19,14 @@
   transform: scale(1.2);
 }
 
-.product__content h5 a {
+.product__img h5 a {
   color: #212245;
   font-size: 1rem;
 }
 
-.product__content h5 {
+.product__img h5 {
   margin-bottom: 20px;
+  font-size: 1rem;
 }
 
 .product__price {
@@ -45,7 +50,7 @@
 }
 
 @media only screen and (max-width: 992px) {
-  .product__content h5 a {
+  .product__img h5 {
     font-size: 0.6rem;
   }
   .product__item {
