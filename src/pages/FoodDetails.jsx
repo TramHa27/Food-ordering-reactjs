@@ -19,6 +19,8 @@ const FoodDetails = () => {
 
   const [enteredEmail, setEnteredEmail] = useState("");
 
+  const [reviewMsg, setReviewMsg] = useState("");
+
   const { id } = useParams();
 
   const dispatch = useDispatch();
@@ -130,12 +132,18 @@ const FoodDetails = () => {
                     <p className="user__email">john1@gmail.com</p>
                     <p className="feedback__text">Great product</p>
                   </div>
-                  <form className="form">
+                  <form
+                    className="form"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                    }}
+                  >
                     <div className="form__group">
                       <input
                         type="text"
                         placeholder="Enter your name"
                         onChange={(e) => setEnteredName(e.target.value)}
+                        required
                       />
                     </div>
                     <div className="form__group">
@@ -143,6 +151,7 @@ const FoodDetails = () => {
                         type="text"
                         placeholder="Enter your email"
                         onChange={(e) => setEnteredEmail(e.target.value)}
+                        required
                       />
                     </div>
                     <div className="form__group">
@@ -150,6 +159,7 @@ const FoodDetails = () => {
                         rows={6}
                         type="text"
                         placeholder="Write your review"
+                        onChange={(e) => setReviewMsg(e.target.value)}
                       />
                     </div>
                     <button type="submit" className="addToCart__btn">

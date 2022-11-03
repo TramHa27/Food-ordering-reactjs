@@ -4,7 +4,7 @@ import { Container } from "reactstrap";
 import "../../../style/common-section.css";
 
 const CommonSection = (props) => {
-  //truyền props từ AllFoods, Food details
+  //truyền props từ AllFoods, Food details, Cart
   return (
     <section className="common__section">
       <Container>
