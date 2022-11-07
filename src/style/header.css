@@ -123,6 +123,7 @@
 
   .cart__icon i,
   .user i,
+  .fav__icon i,
   .mobile__menu i {
     font-size: 1rem;
   }

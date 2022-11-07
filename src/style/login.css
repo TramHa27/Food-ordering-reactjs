@@ -1,0 +1,36 @@
+.ant-input-lg,
+.ant-input-affix-wrapper-lg {
+  padding: 14px 14px;
+  font-size: 16px;
+}
+
+.ant-row {
+  justify-content: center;
+}
+
+.ant-btn-primary {
+  border-color: #272727;
+  background: #272727;
+}
+.ant-btn-danger {
+  border-color: #a0a0a0;
+  background: #a0a0a0;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #272727;
+  border-color: #272727;
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  color: #fff;
+  border-color: #f1252b;
+  background: #f1252b;
+}
+.ant-btn-danger:hover,
+.ant-btn-danger:focus {
+  color: #fff;
+  border-color: #f1252b;
+  background: #f1252b;
+}

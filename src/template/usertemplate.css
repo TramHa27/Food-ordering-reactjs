@@ -1,0 +1,50 @@
+.user-template {
+  background-image: url(../assets/images/banner-02.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+
+.user-template::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.user-template_info {
+  max-width: 400px;
+  width: 100%;
+  padding: 4rem;
+  z-index: 2;
+}
+.user-template_info_text {
+  padding: 0 12px;
+}
+
+.ant-btn-default {
+  border-color: #cc3333;
+  background: #cc3333;
+  color: #fff;
+}
+.ant-btn-default:hover {
+  border-color: #e93c3c;
+  background: #e93c3c;
+  color: #fff;
+}
+.ant-btn-text {
+  border-color: #3b5998;
+  background: #3b5998;
+  color: #fff;
+}
+.ant-btn-text:hover {
+  border-color: #4c72c5;
+  background: #4c72c5;
+  color: #fff;
+}

@@ -80,14 +80,18 @@ const Header = () => {
           </div>
 
           {/* ==============Nav right icon ==============  */}
-          <div className="nav__right d-flex align-items-center gap-4">
+          <div className="nav__right d-flex align-items-center gap-3">
             <span
               className="cart__icon"
               onClick={() => {
                 dispatch(toggle());
               }}
             >
-              <i className="ri-shopping-basket-line"></i>
+              <i className="ri-shopping-bag-line"></i>
+              <span className="cart__badge">{totalQuantity}</span>
+            </span>
+            <span className="cart__icon">
+              <i className="ri-heart-fill "></i>
               <span className="cart__badge">{totalQuantity}</span>
             </span>
             <span className="user">
