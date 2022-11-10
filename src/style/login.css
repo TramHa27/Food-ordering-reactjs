@@ -26,11 +26,11 @@
 .ant-btn-primary:focus {
   color: #fff;
   border-color: #f1252b;
-  background: #f1252b;
+  background: #f1252b !important;
 }
 .ant-btn-danger:hover,
 .ant-btn-danger:focus {
   color: #fff;
   border-color: #f1252b;
-  background: #f1252b;
+  background: #f1252b !important;
 }

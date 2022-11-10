@@ -21,15 +21,15 @@ const UserTemplate = () => {
           <>
             <div>
               <p
-                className="user-template_info_text text-center"
+                className="user-template_info_text text-center fst-italic"
                 style={{ position: "relative" }}
               >
                 Or Login With
               </p>
             </div>
-            <div className="d-flex align-items-center">
+            <div className="user-template-social d-flex align-items-center justify-content-between">
               <Button
-                className="me-4"
+                className=" user-template-btn w-50"
                 type="default"
                 icon={<GoogleOutlined />}
                 size="large"
@@ -38,7 +38,7 @@ const UserTemplate = () => {
                 <span>Google</span>
               </Button>
               <Button
-                className="ms-3"
+                className="user-template-btn"
                 type="text "
                 icon={<FacebookOutlined />}
                 size="large"

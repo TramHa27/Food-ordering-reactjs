@@ -14,7 +14,7 @@ const AllFoods = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const [productsData, setProductsData] = useState(products);
-  console.log(productsData);
+  // console.log(productsData);
 
   const [pageNumber, setPageNumber] = useState(0);
 

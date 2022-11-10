@@ -15,12 +15,6 @@ import { addToCartAction } from "../store/shopping-cart/cartSlice";
 const FoodDetails = () => {
   const [tab, setTab] = useState("desc");
 
-  const [enteredName, setEnteredName] = useState("");
-
-  const [enteredEmail, setEnteredEmail] = useState("");
-
-  const [reviewMsg, setReviewMsg] = useState("");
-
   const { id } = useParams();
 
   const dispatch = useDispatch();
@@ -142,7 +136,7 @@ const FoodDetails = () => {
                       <input
                         type="text"
                         placeholder="Enter your name"
-                        onChange={(e) => setEnteredName(e.target.value)}
+                        // onChange={(e) => setEnteredName(e.target.value)}
                         required
                       />
                     </div>
@@ -150,7 +144,7 @@ const FoodDetails = () => {
                       <input
                         type="text"
                         placeholder="Enter your email"
-                        onChange={(e) => setEnteredEmail(e.target.value)}
+                        // onChange={(e) => setEnteredEmail(e.target.value)}
                         required
                       />
                     </div>
@@ -159,7 +153,7 @@ const FoodDetails = () => {
                         rows={6}
                         type="text"
                         placeholder="Write your review"
-                        onChange={(e) => setReviewMsg(e.target.value)}
+                        // onChange={(e) => setReviewMsg(e.target.value)}
                       />
                     </div>
                     <button type="submit" className="addToCart__btn">
