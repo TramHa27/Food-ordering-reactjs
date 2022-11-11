@@ -1,18 +1,16 @@
-import { Spin } from "antd";
 import React from "react";
-
-export const LazyLoading = () => {
-  return (
-    <div>
-      <Spin size="large" />
-    </div>
+import loaderImg from "../../../assets/images/spinner.svg";
+import "../../../style/loading.css";
+import ReactDOM from "react-dom";
+const LazyLoading = () => {
+  return ReactDOM.createPortal(
+    <div className="wrapper">
+      <div className="loader">
+        <img src={loaderImg} alt="Loading..." />
+      </div>
+    </div>,
+    document.getElementById("loader")
   );
 };
 
-export const LazyButtonLoading = () => {
-  return (
-    <>
-      <Spin size="small" />
-    </>
-  );
-};
+export default LazyLoading;
