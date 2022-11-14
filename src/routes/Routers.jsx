@@ -10,6 +10,7 @@ import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import UserTemplate from "../template/UserTemplate";
+import { ResetPassword } from "../pages/ResetPassword";
 
 const Routers = () => {
   return (
@@ -23,6 +24,7 @@ const Routers = () => {
       <Route element={<UserTemplate />}>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Route>
       <Route path="/contact" element={<Contact />} />
     </Routes>

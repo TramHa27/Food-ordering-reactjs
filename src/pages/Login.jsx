@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "../style/login.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
-
 import { auth } from "../firebase";
 import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
@@ -25,7 +24,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        // console.log(user);
         setLoading(false);
         toast.success("Successfully logged in");
         navigate("/checkout");
@@ -39,9 +38,6 @@ const Login = () => {
       });
   };
 
-  const onFinishFailed = (errorInfo) => {
-    // console.log('Failed:', errorInfo);
-  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -57,8 +53,7 @@ const Login = () => {
           remember: true,
         }}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        // autoComplete="off"
+        autoComplete="off"
       >
         <Form.Item
           name="email"
@@ -91,6 +86,7 @@ const Login = () => {
           <div
             onClick={() => navigate("/reset-password")}
             className="login-form-forgot text-primary fst-italic"
+            style={{ cursor: "pointer" }}
           >
             Forgot?
           </div>

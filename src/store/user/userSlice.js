@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth, SignIn } from "../../firebase";
 
 const initialState = {
-  authUser: {},
+  isLoggedIn: false,
+  email: null,
+  useName: null,
+  userID: null,
 };
 
 const userSlice = createSlice({
@@ -11,20 +14,11 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     handleSignIn: (state, action) => {
-      signInWithEmailAndPassword(action)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log(user);
-          //   toast.success("Successfully logged in");
-          //   navigate("/checkout");
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // ..
-          //   toast.error(error.message);
-        });
+      const { email, userName, userID } = action.payload;
+      state.isLoggedIn = true;
+      state.email = email;
+      state.userName = userName;
+      state.userID = userID;
     },
   },
 });

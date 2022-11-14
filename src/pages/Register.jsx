@@ -19,13 +19,14 @@ const Register = () => {
     const password = values.password;
     const cPassword = values.confirmPassword;
     if (password !== cPassword) {
-      toast.error("Password does not match");
+      toast.error("Password do not match!");
+      return;
     }
     setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+        // console.log(user);
         setLoading(false);
         toast.success("Account created");
         navigate("/login");
@@ -36,6 +37,10 @@ const Register = () => {
         toast.error("Register is unsuccessful");
         // ..
       });
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -50,14 +55,15 @@ const Register = () => {
         initialValues={{
           remember: true,
         }}
-        onFinish={onFinish}
-        // onFinishFailed={onFinishFailed}
+        onFinish={(values) => onFinish(values)}
         autoComplete="off"
+        onFinishFailed={onFinishFailed}
       >
         <Form.Item
           name="email"
           rules={[
             {
+              type: "email",
               required: true,
               message: "Please input your email!",
             },
@@ -70,7 +76,9 @@ const Register = () => {
           rules={[
             {
               required: true,
-              message: "Please input your password!",
+              message: "Password must be at least 6 characters",
+              min: 6,
+              max: 99,
             },
           ]}
         >
@@ -81,11 +89,13 @@ const Register = () => {
           rules={[
             {
               required: true,
-              message: "Please enter again your password!",
+              message: "Password must be at least 6 characters",
+              min: 6,
+              max: 99,
             },
           ]}
         >
-          <Input.Password size="large" placeholder="Confirm password" />
+          <Input.Password size="large" placeholder="Confirm Password" />
         </Form.Item>
         <Form.Item>
           <Button
