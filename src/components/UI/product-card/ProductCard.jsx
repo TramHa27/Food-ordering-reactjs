@@ -1,14 +1,17 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCartAction } from "../../../store/shopping-cart/cartSlice";
 
 import "../../../style/product-card.css";
+import { useAuth } from "../../../firebase";
 
 const ProductCard = (props) => {
   //Lấy item từ cha là home product, all foods
   const { id, title, image01, price } = props.item;
+  const navigate = useNavigate();
+  const currentUser = useAuth();
   const dispatch = useDispatch();
 
   return (
@@ -25,13 +28,17 @@ const ProductCard = (props) => {
           <button
             className="addToCart__btn"
             onClick={() => {
-              const itemCart = {
-                ...props.item,
-                quantity: 1,
-                totalPrice: props.item.price,
-              };
-              const action = addToCartAction(itemCart);
-              dispatch(action);
+              if (currentUser) {
+                const itemCart = {
+                  ...props.item,
+                  quantity: 1,
+                  totalPrice: props.item.price,
+                };
+                const action = addToCartAction(itemCart);
+                dispatch(action);
+              } else {
+                navigate("/login");
+              }
             }}
           >
             Add to Cart

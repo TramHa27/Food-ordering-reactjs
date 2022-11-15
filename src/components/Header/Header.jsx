@@ -5,14 +5,13 @@ import { Container } from "reactstrap";
 import logo from "../../assets/images/res-logo.png";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { useSelector, useDispatch } from "react-redux";
-
+import { useAuth } from "../../firebase";
 import { toggle } from "../../store/shopping-cart/cartUiSlice";
 
 import "../../style/header.css";
 import { toast } from "react-toastify";
-import { useState } from "react";
 const nav__links = [
   {
     display: "Home",
@@ -33,9 +32,10 @@ const nav__links = [
 ];
 
 const Header = () => {
-  const [displayName, setDisplayName] = useState("");
   const menuRef = useRef(null);
   const headerRef = useRef(null);
+  const currentUser = useAuth();
+  console.log(currentUser?.email.split("@")[0]);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   const navigate = useNavigate();
@@ -68,20 +68,6 @@ const Header = () => {
       }
     });
     return () => window.removeEventListener("scroll");
-  }, []);
-
-  //Monitor currently sign in user
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const uid = user.uid;
-        console.log(user.displayName);
-        setDisplayName(user.displayName);
-      } else {
-        // User is signed out
-        setDisplayName("");
-      }
-    });
   }, []);
 
   const menu = (
@@ -131,34 +117,41 @@ const Header = () => {
           </div>
 
           {/* ==============Nav right icon ==============  */}
-          <div className="nav__right d-flex align-items-center  gap-2">
+          <div className="nav__right d-flex align-items-center gap-3">
             <span className="container-item-menu" style={{ cursor: "pointer" }}>
-              <Dropdown overlay={menu} placement="bottomRight" arrow>
-                <Button
-                  icon={
-                    <Avatar
-                      className="m-2"
-                      size="large"
-                      // src={`${
-                      //   currentUser?.photoURL
-                      //     ? currentUser?.photoURL
-                      //     : `https://i.pravatar.cc/50/${currentUser?.uid}`
-                      // }`}
-                      src={`https://i.pravatar.cc/50/`}
-                    />
-                  }
+              {currentUser ? (
+                <Dropdown
+                  overlay={menu}
+                  placement="bottomRight"
+                  arrow
+                  overlayStyle={{ zIndex: "999999" }}
                 >
-                  {/* {dimensions.width < 500
-                    ? ""
-                    : currentUser?.reloadUserInfo?.displayName
-                    ? currentUser.reloadUserInfo.displayName
-                    : currentUser?.email.split("@")[0]} */}
-                  <span className="fs-5">Adam</span>
-                </Button>
-              </Dropdown>
-              {/* <p onClick={() => navigate("/login")} className="text-center">
-                Sign In | Sign Up
-              </p> */}
+                  <Button
+                    icon={
+                      <Avatar
+                        className="m-2"
+                        size="large"
+                        src={`${
+                          currentUser?.photoURL
+                            ? currentUser?.photoURL
+                            : `https://i.pravatar.cc/50/${currentUser?.uid}`
+                        }`}
+                      />
+                    }
+                  >
+                    <span className="fs-5">
+                      {currentUser?.email.split("@")[0]}
+                    </span>
+                  </Button>
+                </Dropdown>
+              ) : (
+                <p
+                  onClick={() => navigate("/login")}
+                  className="text-center mt-3"
+                >
+                  Sign In | Sign Up
+                </p>
+              )}
             </span>
             <span
               className="cart__icon"

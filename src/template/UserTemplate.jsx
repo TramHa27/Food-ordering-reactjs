@@ -4,7 +4,6 @@ import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import logo from "../assets/images/res-logo.png";
 import "./usertemplate.css";
-import { useSelector } from "react-redux";
 import { auth, google, facebook } from "../firebase.js";
 import { toast } from "react-toastify";
 import { signInWithPopup } from "firebase/auth";
@@ -14,7 +13,7 @@ const UserTemplate = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const loginSocial = async (provider) => {
-    const res = await signInWithPopup(auth, provider)
+    await signInWithPopup(auth, provider)
       .then((result) => {
         // const user = result.user;
         toast.success("Login Successfully");

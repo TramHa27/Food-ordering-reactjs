@@ -4,9 +4,11 @@ import {
   getAuth,
   GoogleAuthProvider,
   FacebookAuthProvider,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { useEffect, useState } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -30,3 +32,15 @@ export default app;
 
 export const google = new GoogleAuthProvider();
 export const facebook = new FacebookAuthProvider();
+
+// Custom Hooks
+export function useAuth() {
+  const [currentUser, setCurrentUser] = useState();
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (user) => setCurrentUser(user));
+    return unsub;
+  }, []);
+
+  return currentUser;
+}
